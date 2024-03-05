@@ -1,9 +1,14 @@
-FROM python:3.10.12
+FROM python:3.10.12-slim
+ENV HF_TOKEN=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
+ENV PYTHONUNBUFFERED True
+ENV APP_HOME /app
+WORKDIR $APP_HOME
 
-COPY . .
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
-WORKDIR /
+COPY . ./
 
-RUN pip install --progress-bar off -r requirements.txt
+EXPOSE 8000
 
-CMD ["uvicorn","app:app","--host","0.0.0.0","--port","7860"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080"]

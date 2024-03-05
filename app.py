@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 import uvicorn
 import warnings
-from chatbot import chatbot
+#from chatbot import chatbot
 from fastapi.middleware.cors import CORSMiddleware
 
 app=FastAPI()
@@ -26,8 +26,8 @@ def hello():
 @app.post("/ask")
 async def get_text(text: str):
     print("Received Query!")
-    answer=chatbot(text)
-    # answer="WORKING"
+    #answer=chatbot(text)
+    answer="WORKING"
     print("Response fetched!")
     return JSONResponse({'status':'OK','answer':answer})
     

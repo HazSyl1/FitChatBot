@@ -20,7 +20,7 @@ model=AutoPeftModelForCausalLM.from_pretrained(
     token=token
     )
 generation_config=GenerationConfig(
-    do_sample=True,
+    do_sample=True, 
     top_k=1,
     temperature=0.2,
     max_new_tokens=100,
